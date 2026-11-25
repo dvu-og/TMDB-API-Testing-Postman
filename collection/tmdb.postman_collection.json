@@ -1,0 +1,385 @@
+{
+  "info": {
+    "_postman_id": "6c50aacc-e2a4-43bf-87bb-320a88ec85a1",
+    "name": "tmdb",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57942129",
+    "_collection_link": "https://go.postman.co/collection/57942129-6c50aacc-e2a4-43bf-87bb-320a88ec85a1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "upcoming",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Test 1: Check status code\r",
+              "\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// Test 2: Check response time\r",
+              "\r",
+              "pm.test(\"Response time is below 2000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+              "});\r",
+              "\r",
+              "// Test 3: Check response is JSON\r",
+              "\r",
+              "pm.test(\"Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "// Test 4: Check results exist\r",
+              "\r",
+              "pm.test(\"Movies are available\", function () {\r",
+              "    let data = pm.response.json();\r",
+              "\r",
+              "    pm.expect(data.results).to.be.an(\"array\");\r",
+              "    pm.expect(data.results.length).to.be.above(0);\r",
+              "});"
+            ],
+            "packages": {},
+            "requests": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0gfc}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.themoviedb.org/3/movie/upcoming",
+          "protocol": "https",
+          "host": [
+            "api",
+            "themoviedb",
+            "org"
+          ],
+          "path": [
+            "3",
+            "movie",
+            "upcoming"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "top_rated",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Test 1: Check status code\r",
+              "\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// Test 2: Check response time\r",
+              "\r",
+              "pm.test(\"Response time is below 2000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+              "});\r",
+              "\r",
+              "// Test 3: Check response is JSON\r",
+              "\r",
+              "pm.test(\"Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "// Test 4: Check results exist\r",
+              "\r",
+              "pm.test(\"Movies are available\", function () {\r",
+              "    let data = pm.response.json();\r",
+              "\r",
+              "    pm.expect(data.results).to.be.an(\"array\");\r",
+              "    pm.expect(data.results.length).to.be.above(0);\r",
+              "});"
+            ],
+            "packages": {},
+            "requests": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0gfc}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.themoviedb.org/3/movie/top_rated",
+          "protocol": "https",
+          "host": [
+            "api",
+            "themoviedb",
+            "org"
+          ],
+          "path": [
+            "3",
+            "movie",
+            "top_rated"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "550",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Test 1: Check status code",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "// Test 2: Check response time",
+              "",
+              "pm.test(\"Response time is below 2000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+              "});",
+              "",
+              "// Test 3: Check response is JSON",
+              "",
+              "pm.test(\"Response is JSON\", function () {",
+              "    pm.response.to.be.json;",
+              "});",
+              "",
+              "// Test 4: Check movie details are present",
+              "",
+              "pm.test(\"Movie details are available\", function () {",
+              "    let data = pm.response.json();",
+              "",
+              "    pm.expect(data).to.be.an(\"object\");",
+              "    pm.expect(data.id).to.equal(550);",
+              "    pm.expect(data.title).to.be.a(\"string\");",
+              "});"
+            ],
+            "packages": {},
+            "requests": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0gfc}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.themoviedb.org/3/movie/550",
+          "protocol": "https",
+          "host": [
+            "api",
+            "themoviedb",
+            "org"
+          ],
+          "path": [
+            "3",
+            "movie",
+            "550"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "search",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Test 1: Check status code\r",
+              "\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// Test 2: Check response time\r",
+              "\r",
+              "pm.test(\"Response time is below 2000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+              "});\r",
+              "\r",
+              "// Test 3: Check response is JSON\r",
+              "\r",
+              "pm.test(\"Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "// Test 4: Check results exist\r",
+              "\r",
+              "pm.test(\"Movies are available\", function () {\r",
+              "    let data = pm.response.json();\r",
+              "\r",
+              "    pm.expect(data.results).to.be.an(\"array\");\r",
+              "    pm.expect(data.results.length).to.be.above(0);\r",
+              "});"
+            ],
+            "packages": {},
+            "requests": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0gfc}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.themoviedb.org/3/search/movie",
+          "protocol": "https",
+          "host": [
+            "api",
+            "themoviedb",
+            "org"
+          ],
+          "path": [
+            "3",
+            "search",
+            "movie"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "genrelist",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Test 1: Check status code",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "// Test 2: Check response time",
+              "",
+              "pm.test(\"Response time is below 2000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+              "});",
+              "",
+              "// Test 3: Check response is JSON",
+              "",
+              "pm.test(\"Response is JSON\", function () {",
+              "    pm.response.to.be.json;",
+              "});",
+              "",
+              "// Test 4: Check genres are available",
+              "",
+              "pm.test(\"Genres are available\", function () {",
+              "    let data = pm.response.json();",
+              "",
+              "    pm.expect(data.genres).to.be.an(\"array\");",
+              "    pm.expect(data.genres.length).to.be.above(0);",
+              "});"
+            ],
+            "packages": {},
+            "requests": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0gfc}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.themoviedb.org/3/genre/movie/list",
+          "protocol": "https",
+          "host": [
+            "api",
+            "themoviedb",
+            "org"
+          ],
+          "path": [
+            "3",
+            "genre",
+            "movie",
+            "list"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0gfc",
+      "secret": true,
+      "source": {
+        "provider": "postman",
+        "postman": {
+          "type": "cloud",
+          "secretId": "c65cd27b-5916-4458-af8a-c571f0bdcff3",
+          "vaultId": "0152f929-39c5-4629-a5dd-3e7b7d03a600"
+        }
+      }
+    }
+  ]
+}

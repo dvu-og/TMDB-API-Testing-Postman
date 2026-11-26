@@ -1,0 +1,5 @@
+// Test 1: Invalid Movie ID
+
+pm.test("Invalid movie ID returns 404", function () {
+    pm.response.to.have.status(404);
+});

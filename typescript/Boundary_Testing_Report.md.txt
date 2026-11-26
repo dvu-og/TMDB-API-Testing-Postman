@@ -1,0 +1,23 @@
+# TMDB API – Boundary Value Testing Report
+
+## Project Information
+- Project: TMDB API Testing
+- Tool: Postman
+- Testing Type: Boundary Value Testing
+- API: Search Movies
+
+## Parameter Tested
+Page
+
+## Test Cases
+
+| Test Case | Input | Expected Status | Actual Status | Result |
+|---|---:|---:|---:|---|
+| Below minimum | 0 | 400 | 400 | PASS |
+| Minimum valid | 1 | 200 | 200 | PASS |
+| Maximum valid | 500 | 200 | 200 | PASS |
+| Above maximum | 501 | 400 | 400 | PASS |
+
+## Conclusion
+
+The TMDB API correctly handles valid and invalid page values. All four boundary test cases produced the expected HTTP status codes.
